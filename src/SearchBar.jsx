@@ -67,7 +67,7 @@ const SearchBar = (args) => {
         }}
       />
       <p className="read-the-docs">
-        Number of results matching:
+        Number of movies matching:
       </p>
     </div>
   );
