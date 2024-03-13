@@ -4,6 +4,7 @@ let SWAPI_URI = 'https://swapi.info/api/films/';
 
 const SearchBar = (args) => {
   const [value, setValue] = useState(''); // Text bar input
+  const [matches, setMatches] = useState(0);
 
   const logData = (data) => {
     console.log('Data fetched...');
@@ -30,23 +31,30 @@ const SearchBar = (args) => {
       films = [];
     }
 
+    let filmsFound = 0;
     for (const film of films) {
       for (const prop of propsToMatch) {
         if (prop in film) {
           if (film[prop].toLowerCase().indexOf(value.toLowerCase()) != -1) {
             console.log(film.title);
             console.log('Matched by: ' + prop);
+
+            filmsFound++;
+            console.log(matches)
+
+            if(args.oneResultOnly && filmResult.length == 1)
+            {
+              break;
+            }
+
             filmResult.push(film);
             break;
           }
         }
       }
-
-      if (filmResult.length == 1) {
-        break;
-      }
     }
 
+    setMatches(filmsFound);
     args.callback(filmResult);
   };
 
@@ -67,7 +75,7 @@ const SearchBar = (args) => {
         }}
       />
       <p className="read-the-docs">
-        Number of movies matching:
+        Number of movies matching: {matches}
       </p>
     </div>
   );

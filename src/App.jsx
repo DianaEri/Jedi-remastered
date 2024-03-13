@@ -50,7 +50,7 @@ function App() {
       <p className="read-the-docs">
         Use the search bar to access Star Wars data.
       </p>
-      <SearchBar callback={setFilmResult} />
+      <SearchBar oneResultOnly={true} callback={setFilmResult} />
       <FilmList list={filmResult} />
     </div>
   );
