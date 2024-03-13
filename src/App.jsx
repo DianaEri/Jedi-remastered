@@ -24,6 +24,12 @@ const FilmList = ({ list }) => {
           <li>
             <span>Release Date:</span> {film.release_date}
           </li>
+          <li>
+            <span>Number of characters:</span> {film.characters.length}
+          </li>
+          <li>
+            <span>Number of starships:</span> {film.starships.length}
+          </li>
         </ul>
       ))}
     </ul>
