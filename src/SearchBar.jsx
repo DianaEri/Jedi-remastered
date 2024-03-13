@@ -66,6 +66,9 @@ const SearchBar = (args) => {
           setValue(e.target.value);
         }}
       />
+      <p className="read-the-docs">
+        Number of results matching:
+      </p>
     </div>
   );
 };
